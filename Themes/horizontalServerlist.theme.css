@@ -1,0 +1,194 @@
+/* //META { "name": "Horizontal_Serverlist", "description": "I've always wanted this :3", "author": "square", "version": "2.0.4-pre"} *//**/
+
+:root {
+  --height-titlebar: 22px;
+  --guild-row-count: 1;
+  --DM-column-count: 1;
+  --show-unread-indicator: 1;
+}
+
+
+.layers-3iHuyZ > .layer-3QrUeG:first-child > :first-child {
+  flex-flow: row wrap;
+  --height-serverlist: calc(70px * var(--guild-row-count) - 10px * (var(--guild-row-count) - 1));
+}
+
+.layers-3iHuyZ > .layer-3QrUeG:first-child > :first-child > * {
+  flex: 1 100%;
+}
+
+.guildsWrapper-5TJh6A {
+  order: 42;
+}
+
+.guildsWrapper-5TJh6A ~ * {
+  height: calc(100vh - var(--height-titlebar) - var(--height-serverlist));
+}
+
+.guildsWrapper-5TJh6A .scrollerWrap-2lJEkd {
+  display: flex;
+  width: 100vw;
+  height: var(--height-serverlist);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH {
+  width: 100%;
+  height: var(--height-serverlist);
+  padding: 10px 0 0 0;
+  box-sizing: border-box;
+  margin: 0 0 0 68px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .guild-1EfMGQ, .guildsWrapper-5TJh6A .guilds-1q_RqH .guild-1EfMGQ + .guild-1EfMGQ {
+  display: inline-flex;
+  margin: 0 0 10px 8px;
+  padding: 0;
+  order: 3;
+  /*max-width: 50px;
+  max-height: 50px;*/
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH > * > * {
+  flex: 1 0 auto;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH > .guild-1EfMGQ:first-child,
+.guildsWrapper-5TJh6A .guilds-1q_RqH .friendsOnline-_wi_fM,
+.guildsWrapper-5TJh6A .guilds-1q_RqH .guildSeparator-1X4GQ1 {
+  position: absolute;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH > .guild-1EfMGQ:first-child {
+  left: 8px; top: calc(50% - 25px);
+  margin: 0;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .friendsOnline-_wi_fM {
+  left: 8px; top: calc(50% + 23px);
+  margin: 0;
+  display: block;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .guildSeparator-1X4GQ1 {
+  left: 66px;
+  top: 10px;
+  width: 2px;
+  height: calc(100% - 20px);
+  margin: 0;
+}
+.guildsWrapper-5TJh6A .guilds-1q_RqH .guildSeparator-1X4GQ1:after {
+  left: unset; right: unset;
+  top: 0; bottom: 0;
+  width: 100%; height: 100%;
+}
+
+.dms-rcsEnV:empty { display: none; }
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .guild-1EfMGQ.selected-ML3OIq:before,
+.guildsWrapper-5TJh6A .guilds-1q_RqH .guild-1EfMGQ.unread-qLkInr:before {
+  top: unset;
+  left: 50%;
+  bottom: -10px;
+  margin: 0;
+  height: 5px;
+  border-radius: 0;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .guild-1EfMGQ.unread-qLkInr:before {
+  width: 10px;
+  margin-left: -5px;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .guild-1EfMGQ.selected-ML3OIq:before {
+  width: 40px;
+  margin-left: -20px;
+  transition: all .25s;
+}
+
+#bd-pub-li {
+  order: 2;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .dms-rcsEnV {
+  display: block;
+  order: 1;
+  flex: unset;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 -10px 0 0;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(58px * var(--DM-column-count));
+  padding-right: 10px;
+  counter-reset: dms;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .dms-rcsEnV .guild-1EfMGQ {
+  counter-increment: dms;
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .dms-rcsEnV:after {/*
+  content: counter(dms);
+  width: calc(counter(dms) * 158px);*/
+}
+
+.guildsWrapper-5TJh6A .guilds-1q_RqH .dms-rcsEnV::-webkit-scrollbar,
+.guildsWrapper-5TJh6A .guilds-1q_RqH.scroller::-webkit-scrollbar {
+  max-width: 0;
+}
+
+.unreadMentionsIndicatorBottom-BXS58x .unreadMentionsBar-1VrBNe:before,
+.unreadMentionsIndicatorTop-gA6RCh .unreadMentionsBar-1VrBNe:before {
+  content: unset;
+}
+
+.unreadMentionsIndicatorBottom-BXS58x,
+.unreadMentionsIndicatorTop-gA6RCh {
+  padding: 0;
+  top: 0;
+  bottom: unset;
+  height: 10px;
+  pointer-events: none;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(1,1,1,var(--show-unread-indicator))), color-stop(1, transparent));
+}
+
+.unreadMentionsIndicatorBottom-BXS58x *,
+.unreadMentionsIndicatorTop-gA6RCh * {
+  pointer-events: none;
+}
+
+.unreadMentionsIndicatorBottom-BXS58x .unreadMentionsBar-1VrBNe,
+.unreadMentionsIndicatorTop-gA6RCh .unreadMentionsBar-1VrBNe {
+  height: 10px;
+  border-radius: 0;
+}
+
+.unreadMentionsIndicatorBottom-BXS58x .unreadMentionsBar-1VrBNe svg,
+.unreadMentionsIndicatorTop-gA6RCh .unreadMentionsBar-1VrBNe svg{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
